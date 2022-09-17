@@ -1,0 +1,4 @@
+Para añadir el driver necesario para el sqlserver, necesitaras añadir las extensiones al php.ini, pega las siguiente lineas de código en cualquier parte del php.ini
+
+extension=php_pdo_sqlsrv_81_ts_x64.dll
+extension=php_sqlsrv_81_ts_x64.dll
