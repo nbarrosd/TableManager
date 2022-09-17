@@ -14,20 +14,14 @@
 <body>
     <table>
         <thead>
-            <th>Fecha ingreso</th>
-            <th>Visitante</th>
-            <th>Nro Documento</th>
-            <th>Oficina</th>
-            <th>Empleado</th>
-            <th>Motivo</th>
-            <th>Fecha de salida</th>
-            <th>Accion</th>
+            <th>ID_administrador</th>
+            <th>Nombre_Admin</th>
         </thead>
     <tbody>
         @foreach($listado as $l)
     <tr>
-        <td>{{$l->fecha}}</td>
-        <td>{{$l->$nombres}}</td>
+        <td>{{$l->ID_administrador}}</td>
+        <td>{{$l->Nombre_Admin}}</td>
         <td><a class="btn btn-warning">Editar</a> <a class="btn btn-success">detalles</a></td>
     </tr>
     @endforeach
