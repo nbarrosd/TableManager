@@ -8,7 +8,7 @@ class ListadoController extends Controller
 {
     //
     public function index(){
-$query=DB::table('dbo.visitas')
+$query=DB::table('dbo.Administrador')
 ->get();
 return view('index',['listado'=>$query]);
     }
