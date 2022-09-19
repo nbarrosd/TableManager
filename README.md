@@ -4,7 +4,9 @@ Instalación:
 
  *   En la ruta del repositorio clonado escribir lo siguiente:
 
- *   "laravel update"
+ *   "composer update"
+
+ *   "composer install"
 
  *   "php artisan serve"
 
