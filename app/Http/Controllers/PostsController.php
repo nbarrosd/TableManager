@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use DB;
+use DateTime;
+
+
 
 class PostsController extends Controller
 {
@@ -36,12 +40,24 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {       
+     /* $title = $request->input('title');
+        $body = $request->input('body');
+        $post = DB::insert("INSERT INTO posts (title, body)
+        VALUES ('$title', '$body');");
+        */
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required'
         ]);
-        return 'macaco morreu';
+        
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/addT')->with('success', 'Insercion Realizada');
+       
     }
 
     /**
@@ -52,7 +68,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**

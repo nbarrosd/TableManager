@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::controller('posts', PostsController::class);
+
+Route::resource('posts', PostsController::class);
 */
 
 Route::get('/', PagesController::class);
@@ -27,7 +31,8 @@ Route::get('/services', [PagesController::class, 'services']);
 
 Route::get('/index', [PagesController::class,'index']);
 
-Route::resource('posts','PostsController');
+Route::view('/addT', 'posts.form');
 
-Auth::routes();
+Route::post('addT', [PostsController::class, 'store']);
 
+Route::get('/show', [PostsController::class, 'index']);
